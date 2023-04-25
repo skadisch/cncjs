@@ -30,7 +30,7 @@ import {
   TINYG_MACHINE_STATE_STOP,
   TINYG_MACHINE_STATE_END,
   // Workflow
-  WORKFLOW_STATE_IDLE
+  WORKFLOW_STATE_RUNNING
 } from '../../constants';
 import {
   MODAL_NONE,
@@ -418,7 +418,7 @@ class ProbeWidget extends PureComponent {
       if (!port) {
         return false;
       }
-      if (workflow.state !== WORKFLOW_STATE_IDLE) {
+      if (workflow.state === WORKFLOW_STATE_RUNNING) {
         return false;
       }
       if (!includes([GRBL, MARLIN, SMOOTHIE, TINYG], controllerType)) {
